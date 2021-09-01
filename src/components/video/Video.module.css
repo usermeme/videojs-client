@@ -1,0 +1,173 @@
+:root {
+  /* Stemscopes Colors */
+
+  --primary-400: #2a8dde;
+  --primary-500: #006cd8;
+  --primary-600: #0055be;
+  --basic-100: #fff;
+  --info-400: #867aff;
+
+  /* General variables */
+
+  --general-line-height: 1.75rem; /* 28px */
+  --general-lg-padding-tb: 11px;
+
+  /* Animation */
+
+  --global-transition: all 0.3s ease-out;
+
+  /* Button config */
+
+  --button-border-width: 1px;
+  --button-lg-min-height: calc(
+    var(--general-line-height) +
+      (var(--general-lg-padding-tb) + var(--button-border-width)) * 2
+  );
+
+  /* Outline */
+
+  --outline-color: var(--info-400);
+  --outline-width: 4px;
+  --global-outline: 0 0 0 var(--outline-width) var(--outline-color);
+}
+
+.wrapper {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+
+  :global {
+    .vjs-resolution-button .vjs-icon-placeholder::before {
+      content: "\f110";
+      font-family: VideoJS, sans-serif;
+      font-weight: normal;
+      font-style: normal;
+      font-size: 1.8em;
+      line-height: 1.67em;
+    }
+
+    .vjs-resolution-button .vjs-resolution-button-label {
+      font-size: 1em;
+      line-height: 3em;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      box-sizing: inherit;
+    }
+
+    .vjs-resolution-button .vjs-menu .vjs-menu-content {
+      width: 4em;
+      left: 50%;
+      margin-left: -2em;
+    }
+
+    .vjs-resolution-button .vjs-menu li {
+      text-transform: none;
+      font-size: 1em;
+    }
+
+    .vjs-menu-item.auto {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+    }
+
+    .vjs-menu-item-text.auto {
+      /*
+        --global-grid-size is video-js property
+      */
+
+      /* noinspection CssUnresolvedCustomProperty */
+      margin-right: calc(var(--global-grid-size) / 2);
+    }
+
+    .video-js .vjs-big-play-button {
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      border: none;
+      transition: var(--global-transition);
+      border-radius: 50%;
+      background-color: var(--primary-500);
+      width: var(--button-lg-min-height);
+      height: var(--button-lg-min-height);
+      line-height: var(--button-lg-min-height);
+
+      &:focus {
+        outline-style: solid;
+        outline-color: transparent;
+        background-color: var(--primary-500);
+        transition: var(--global-transition);
+      }
+
+      &:active {
+        background-color: var(--primary-600);
+      }
+
+      &[data-focus-visible] {
+        transition: none;
+        box-shadow: var(--global-outline);
+      }
+
+      .theme-high-contrast & {
+        @media not print {
+          color: var(--basic-100);
+        }
+      }
+    }
+
+    .vjs-poster {
+      background-color: #fff;
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+
+    .video-js {
+      background-color: #fff;
+    }
+
+    .vjs-error-display {
+      display: none;
+    }
+
+    .video-js:hover .vjs-big-play-button {
+      background-color: var(--primary-400);
+      transition: var(--global-transition);
+    }
+
+    .vjs-track-setting {
+      color: #000;
+    }
+
+    .video-js.vjs-fluid,
+    .video-js.vjs-16-9,
+    .video-js.vjs-4-3,
+    video.video-js,
+    video.vjs-tech {
+      max-height: inherit;
+      position: relative;
+      width: 100%;
+      height: 100%;
+      max-width: 100% !important;
+      padding-top: 0 !important;
+      line-height: 0;
+    }
+
+    /* Fix the control bar due to us resetting the line-height on the video-js */
+    .vjs-control-bar {
+      line-height: 1;
+    }
+  }
+}
+
+.hasChapters {
+  :global(.vjs-chapters-button) {
+    display: block !important;
+  }
+}
