@@ -180,6 +180,9 @@
   padding: 1rem;
 }
 
+.transcriptContainer:empty {
+  display: none;
+}
 .transcriptContainer div {
   margin-bottom: 1rem;
 }
