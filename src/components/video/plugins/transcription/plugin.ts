@@ -78,11 +78,16 @@ class TranscriptionSelector extends Plugin {
   }
 
   setTranscription(value: string): void {
-    const parsedValue = parse(value).entries;
-    const html = parsedValue
-      .map((entry) => `<div>${entry.text}</div>`)
-      .join("\n");
-    this.config.container.innerHTML = html;
+    // change this function, i don't have a time
+    if (value) {
+      const parsedValue = parse(value).entries;
+      const html = parsedValue
+        .map((entry) => `<div>${entry.text}</div>`)
+        .join("\n");
+      this.config.container.innerHTML = html;
+    } else {
+      this.config.container.innerHTML = "";
+    }
   }
 
   setButtonInnerText(text: string): void {
