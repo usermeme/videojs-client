@@ -171,3 +171,15 @@
     display: block !important;
   }
 }
+
+.transcriptContainer {
+  max-height: 200px;
+  border: 1px solid black;
+  overflow-y: scroll;
+  text-align: left;
+  padding: 1rem;
+}
+
+.transcriptContainer div {
+  margin-bottom: 1rem;
+}
